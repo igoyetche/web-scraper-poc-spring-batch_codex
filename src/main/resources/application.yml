@@ -1,0 +1,12 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/article-db
+  task:
+    name: article-scraper
+scraper:
+  delayMs: 1000
+  bucketName: articles-json
+logging:
+  level:
+    root: INFO

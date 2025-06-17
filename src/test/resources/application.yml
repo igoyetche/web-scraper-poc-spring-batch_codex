@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    driverClassName: org.postgresql.Driver
+  batch:
+    jdbc:
+      initialize-schema: always
