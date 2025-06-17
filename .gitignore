@@ -1,0 +1,16 @@
+# Ignore Gradle wrapper jar
+**/gradle-wrapper.jar
+
+# Build outputs
+/build/
+out/
+
+# IDE files
+.idea/
+*.iml
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
