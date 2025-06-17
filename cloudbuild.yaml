@@ -1,0 +1,12 @@
+steps:
+  - name: 'gcr.io/cloud-builders/gradle'
+    args: ['build', '-x', 'test']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', '$PROJECT_ID/article-scraper', '.']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', '$PROJECT_ID/article-scraper']
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args: ['run', 'deploy', 'article-scraper', '--image', 'gcr.io/$PROJECT_ID/article-scraper', '--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated']
+images:
+  - 'gcr.io/$PROJECT_ID/article-scraper'
